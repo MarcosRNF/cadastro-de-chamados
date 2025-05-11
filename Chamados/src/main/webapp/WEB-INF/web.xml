@@ -22,7 +22,7 @@
 	
 	<servlet>
 		<servlet-name>NovoChamado</servlet-name>
-		<servlet-class>NovoChamado</servlet-class>
+		<servlet-class>NovoChamadoServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -32,7 +32,7 @@
 	
 	<servlet>
 		<servlet-name>ListarChamados</servlet-name>
-		<servlet-class>ListarChamados</servlet-class>
+		<servlet-class>ListarChamadosServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -42,11 +42,21 @@
 	
 	<servlet>
 		<servlet-name>EditarChamado</servlet-name>
-		<servlet-class>EditarChamado</servlet-class>
+		<servlet-class>EditarChamadoServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>EditarChamado</servlet-name>
 		<url-pattern>/editarchamado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>LoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 </web-app>
