@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -21,12 +23,24 @@ public class ListarChamadosServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		
+		HttpSession sessao = request.getSession();
+		
+		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<meta charset='utf-8'>");
 		out.println("<title>Listar chamados</title>");
 		out.println("</head>");
 		out.println("<body>");		
+		if(sessao.getAttribute("login") == null) {
+			response.sendRedirect("http://localhost:8080/Chamados/login");
+			System.out.println("Caiu aqui. Login inválido!");
+		}
+		
+		out.println(sessao.getAttribute("info"));
+		out.println("<br><a href='http://localhost:8080/Chamados/login?msg=logoff'>Sair</a> ");
+		
 		out.println("<div style='background-color: #00FFFF; border-bottom:1px solid grey'>");
 		out.println("<h1>Seção Listar Chamados</h1>");
 		out.println("</div>");

@@ -23,6 +23,7 @@ public class NovoChamadoServlet extends HttpServlet {
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Cadastrar novo Chamado</title>");
+		out.println("<meta charset='utf-8'>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>Novo Chamado</h1>");
@@ -74,10 +75,12 @@ public class NovoChamadoServlet extends HttpServlet {
 				prs.execute();
 				prs.close();
 				conn.close();
+				
+				response.sendRedirect("http://localhost:8080/Chamados/listarchamados");
+
 				} catch(SQLException e) {
 					out.println("Problema no banco de dados: " + e.getMessage());
 				}
-				
 				
 				
 			} catch (ClassNotFoundException e) {
